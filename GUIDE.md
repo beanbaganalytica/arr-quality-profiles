@@ -1,4 +1,4 @@
-# Usenet Media Server Guide
+o# Usenet Media Server Guide
 
 A complete guide for setting up a Usenet-based media server stack with Jellyfin and the *arr suite on Proxmox.
 
@@ -668,7 +668,7 @@ In each arr: Settings → Download Clients → Add → **SABnzbd** (nzbdav uses 
 | Name | `nzbdav` |
 | Host | `nzbdav` |
 | Port | `3000` |
-| Use SSL | No |
+| Use SSL | Yes |
 | API Key | From nzbdav UI → Settings → SABnzbd → API Key |
 | Username | leave blank |
 | Password | leave blank |
