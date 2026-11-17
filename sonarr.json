@@ -2,7 +2,7 @@
   {
     "name": "[Anime] Remux-1080p",
     "upgradeAllowed": true,
-    "cutoff": 7,
+    "cutoff": 1004,
     "items": [
       {
         "quality": {
@@ -233,24 +233,31 @@
         "id": 1003
       },
       {
-        "quality": {
-          "id": 7,
-          "name": "Bluray-1080p",
-          "source": "bluray",
-          "resolution": 1080
-        },
-        "items": [],
-        "allowed": true
-      },
-      {
-        "quality": {
-          "id": 20,
-          "name": "Bluray-1080p Remux",
-          "source": "blurayRaw",
-          "resolution": 1080
-        },
-        "items": [],
-        "allowed": false
+        "name": "Bluray 1080p",
+        "items": [
+          {
+            "quality": {
+              "id": 7,
+              "name": "Bluray-1080p",
+              "source": "bluray",
+              "resolution": 1080
+            },
+            "items": [],
+            "allowed": true
+          },
+          {
+            "quality": {
+              "id": 20,
+              "name": "Bluray-1080p Remux",
+              "source": "blurayRaw",
+              "resolution": 1080
+            },
+            "items": [],
+            "allowed": true
+          }
+        ],
+        "allowed": true,
+        "id": 1004
       }
     ],
     "minFormatScore": 100,

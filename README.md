@@ -6,7 +6,7 @@ The profiles are built for a streaming library (Usenet through a WebDAV mount, p
 
 Exported from Radarr 6.x and Sonarr 4.x on 2026-11-16.
 
-No 1080p profile takes remuxes. A remux does not stream reliably to viewers on a slow connection. Two profile names still say "Remux"; the names are kept so that tools which refer to them keep working.
+1080p remuxes run at about 35 Mbps. If some viewers have a slow connection, set a bitrate limit for those users in Jellyfin so the server transcodes for them.
 
 ## Profiles
 
@@ -23,8 +23,7 @@ Every profile blocks these with a score of -10000: `BR-DISK`, `LQ`, `LQ (Release
 
 ### Radarr: Remux + WEB 1080p
 
-- **Qualities, low to high:** WEB 720p, Bluray-720p, WEB 1080p, Bluray-1080p
-- **Not allowed:** Remux-1080p
+- **Qualities, low to high:** WEB 720p, Bluray-720p, WEB 1080p, Bluray-1080p, Remux-1080p
 - **Cutoff:** Bluray-1080p
 - **Minimum score:** 0
 - **Language:** Original
@@ -32,14 +31,14 @@ Every profile blocks these with a score of -10000: `BR-DISK`, `LQ`, `LQ (Release
 | Score | Custom formats |
 | --- | --- |
 | 5000 to 2000 | Lossless and object audio: TrueHD ATMOS (5000), DTS X (4500), ATMOS (undefined) and DD+ ATMOS (3000), TrueHD (2750), DTS-HD MA (2500), FLAC and PCM (2250), DTS-HD HRA (2000) |
-| 1950 to 1850 | Remux Tier 01, 02, 03. No effect now, because the remux quality is not allowed |
+| 1950 to 1850 | Remux Tier 01, 02, 03 |
 | 1750 to 750 | Lossy audio: DD+ (1750), DTS-ES (1500), DTS (1250), AAC (1000), DD (750) |
 | 1700 to 1600 | WEB Tier 01, 02, 03 |
 | 800 | HD Bluray Tier 01, 02 |
 | 25 to 5 | Small tie-breakers: Hybrid, HD Bluray Tier 03, CRiT, MA, BCORE, Repack/Proper, Repack2, Repack3 |
 | -10000 | 3D, AV1, Generated Dynamic HDR, Sing-Along Versions, x265 (HD), plus the common blocks |
 
-Audio scores are larger than release-group scores. Within one quality, the release with the best audio wins.
+Remux-1080p is the highest quality, and upgrades never stop, so most movies end up as remuxes. Audio scores are larger than release-group scores: within one quality, the release with the best audio wins.
 
 ### Radarr 4K: WEB 2160p
 
@@ -80,9 +79,8 @@ WEB 1080p ranks above Bluray-1080p. That is the "Alternative" in the name.
 
 ### Sonarr: [Anime] Remux-1080p
 
-- **Qualities, low to high:** SDTV, DVD, WEB 480p, Bluray-480p, WEB 720p, Bluray-720p, WEB 1080p, Bluray-1080p
-- **Not allowed:** Bluray-1080p Remux
-- **Cutoff:** Bluray-1080p
+- **Qualities, low to high:** SDTV, DVD, WEB 480p, Bluray-480p, WEB 720p, Bluray-720p, WEB 1080p, Bluray 1080p (includes Remux)
+- **Cutoff:** Bluray 1080p
 - **Minimum score:** 100
 
 This profile wants English audio.
