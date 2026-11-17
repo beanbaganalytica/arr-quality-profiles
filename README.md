@@ -118,7 +118,7 @@ git clone https://github.com/beanbaganalytica/arr-quality-profiles
 python3 arr-quality-profiles/import.py
 ```
 
-The script asks for the API key of each instance. Find it under **Settings → General → Security → API Key**.
+The script asks for the API key of each instance. Find it under **Settings → General → Security → API Key**. Press Enter with no key to skip an instance you do not run, for example the two 4K instances.
 
 For each instance it creates the custom formats, then the profiles. Custom format IDs differ between servers, so the script maps the old IDs to the new ones.
 

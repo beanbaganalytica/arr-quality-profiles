@@ -43,12 +43,12 @@ INSTANCES = [
     },
 ]
 
-print("Enter API keys for each instance (Settings → General → Security → API Key)\n")
+print("Enter API keys for each instance (Settings → General → Security → API Key)")
+print("Press Enter with no key to skip an instance you do not run.\n")
 for instance in INSTANCES:
     key = input(f"  {instance['name']} ({instance['url']}): ").strip()
     if not key:
-        print(f"ERROR: No API key provided for '{instance['name']}'. Aborting.")
-        raise SystemExit(1)
+        print(f"    (no key entered: {instance['name']} will be skipped)")
     instance["api_key"] = key
 print()
 
@@ -111,5 +111,7 @@ def import_instance(instance):
 
 if __name__ == "__main__":
     for instance in INSTANCES:
+        if not instance["api_key"]:
+            continue
         import_instance(instance)
     print("\nAll done — check your arr instances to verify the profiles look correct.")
