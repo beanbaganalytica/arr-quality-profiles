@@ -360,7 +360,7 @@
           "modifier": "remux"
         },
         "items": [],
-        "allowed": true
+        "allowed": false
       }
     ],
     "minFormatScore": 0,

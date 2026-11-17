@@ -2,7 +2,7 @@
   {
     "name": "[Anime] Remux-1080p",
     "upgradeAllowed": true,
-    "cutoff": 1004,
+    "cutoff": 7,
     "items": [
       {
         "quality": {
@@ -233,37 +233,45 @@
         "id": 1003
       },
       {
-        "name": "Bluray 1080p",
-        "items": [
-          {
-            "quality": {
-              "id": 7,
-              "name": "Bluray-1080p",
-              "source": "bluray",
-              "resolution": 1080
-            },
-            "items": [],
-            "allowed": true
-          },
-          {
-            "quality": {
-              "id": 20,
-              "name": "Bluray-1080p Remux",
-              "source": "blurayRaw",
-              "resolution": 1080
-            },
-            "items": [],
-            "allowed": true
-          }
-        ],
-        "allowed": true,
-        "id": 1004
+        "quality": {
+          "id": 7,
+          "name": "Bluray-1080p",
+          "source": "bluray",
+          "resolution": 1080
+        },
+        "items": [],
+        "allowed": true
+      },
+      {
+        "quality": {
+          "id": 20,
+          "name": "Bluray-1080p Remux",
+          "source": "blurayRaw",
+          "resolution": 1080
+        },
+        "items": [],
+        "allowed": false
       }
     ],
     "minFormatScore": 100,
     "cutoffFormatScore": 10000,
     "minUpgradeFormatScore": 1,
     "formatItems": [
+      {
+        "format": 69,
+        "name": "WEB Tier 02",
+        "score": 0
+      },
+      {
+        "format": 68,
+        "name": "WEB Tier 01",
+        "score": 0
+      },
+      {
+        "format": 67,
+        "name": "Not English Audio",
+        "score": -10000
+      },
       {
         "format": 66,
         "name": "ROKU",
@@ -860,6 +868,21 @@
     "cutoffFormatScore": 10000,
     "minUpgradeFormatScore": 1,
     "formatItems": [
+      {
+        "format": 69,
+        "name": "WEB Tier 02",
+        "score": 1650
+      },
+      {
+        "format": 68,
+        "name": "WEB Tier 01",
+        "score": 1700
+      },
+      {
+        "format": 67,
+        "name": "Not English Audio",
+        "score": 0
+      },
       {
         "format": 66,
         "name": "ROKU",

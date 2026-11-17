@@ -3968,7 +3968,7 @@
         ]
       },
       {
-        "name": "Shirσ",
+        "name": "Shir\u03c3",
         "implementation": "ReleaseTitleSpecification",
         "implementationName": "Release Title",
         "infoLink": "https://wiki.servarr.com/sonarr/settings#custom-formats-2",
@@ -3980,7 +3980,7 @@
             "name": "value",
             "label": "Regular Expression",
             "helpText": "Custom Format RegEx is Case Insensitive",
-            "value": "\\b(Shirσ)\\b",
+            "value": "\\b(Shir\u03c3)\\b",
             "type": "textbox",
             "advanced": false,
             "privacy": "normal",

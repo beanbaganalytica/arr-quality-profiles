@@ -4,7 +4,9 @@ Quality profiles and custom formats for Radarr and Sonarr, exported as JSON, wit
 
 The profiles are built for a streaming library (Usenet through a WebDAV mount, played in Jellyfin). File size is not a concern, so the scoring favours the best audio and the best release groups. Custom format names follow [TRaSH Guides](https://trash-guides.info/).
 
-Exported from Radarr 6.x and Sonarr 4.x on 2026-05-21. The live server still matched these files on 2026-11-16.
+Exported from Radarr 6.x and Sonarr 4.x on 2026-11-16.
+
+No 1080p profile takes remuxes. A remux does not stream reliably to viewers on a slow connection. Two profile names still say "Remux"; the names are kept so that tools which refer to them keep working.
 
 ## Profiles
 
@@ -12,7 +14,7 @@ Exported from Radarr 6.x and Sonarr 4.x on 2026-05-21. The live server still mat
 | --- | --- | --- | --- |
 | radarr | 7878 | Remux + WEB 1080p | `radarr.json`, `radarr-customformats.json` (57 custom formats) |
 | radarr4k | 7879 | WEB 2160p | `radarr4k.json`, `radarr4k-customformats.json` (59) |
-| sonarr | 8989 | WEB-1080p (Alternative), [Anime] Remux-1080p | `sonarr.json`, `sonarr-customformats.json` (67) |
+| sonarr | 8989 | WEB-1080p (Alternative), [Anime] Remux-1080p | `sonarr.json`, `sonarr-customformats.json` (69) |
 | sonarr4k | 8990 | WEB-2160p (Alternative) | `sonarr4k.json`, `sonarr4k-customformats.json` (63) |
 
 Every profile has upgrades on and an upgrade-until score of 10000. In practice a title keeps upgrading whenever a release with a higher score appears.
@@ -21,7 +23,8 @@ Every profile blocks these with a score of -10000: `BR-DISK`, `LQ`, `LQ (Release
 
 ### Radarr: Remux + WEB 1080p
 
-- **Qualities, low to high:** WEB 720p, Bluray-720p, WEB 1080p, Bluray-1080p, Remux-1080p
+- **Qualities, low to high:** WEB 720p, Bluray-720p, WEB 1080p, Bluray-1080p
+- **Not allowed:** Remux-1080p
 - **Cutoff:** Bluray-1080p
 - **Minimum score:** 0
 - **Language:** Original
@@ -29,14 +32,14 @@ Every profile blocks these with a score of -10000: `BR-DISK`, `LQ`, `LQ (Release
 | Score | Custom formats |
 | --- | --- |
 | 5000 to 2000 | Lossless and object audio: TrueHD ATMOS (5000), DTS X (4500), ATMOS (undefined) and DD+ ATMOS (3000), TrueHD (2750), DTS-HD MA (2500), FLAC and PCM (2250), DTS-HD HRA (2000) |
-| 1950 to 1850 | Remux Tier 01, 02, 03 |
+| 1950 to 1850 | Remux Tier 01, 02, 03. No effect now, because the remux quality is not allowed |
 | 1750 to 750 | Lossy audio: DD+ (1750), DTS-ES (1500), DTS (1250), AAC (1000), DD (750) |
 | 1700 to 1600 | WEB Tier 01, 02, 03 |
 | 800 | HD Bluray Tier 01, 02 |
 | 25 to 5 | Small tie-breakers: Hybrid, HD Bluray Tier 03, CRiT, MA, BCORE, Repack/Proper, Repack2, Repack3 |
 | -10000 | 3D, AV1, Generated Dynamic HDR, Sing-Along Versions, x265 (HD), plus the common blocks |
 
-Audio scores are larger than release-group scores. A remux with TrueHD ATMOS always beats a WEB release.
+Audio scores are larger than release-group scores. Within one quality, the release with the best audio wins.
 
 ### Radarr 4K: WEB 2160p
 
@@ -68,7 +71,7 @@ WEB 1080p ranks above Bluray-1080p. That is the "Alternative" in the name.
 
 | Score | Custom formats |
 | --- | --- |
-| 1700 to 1600 | ATVP (1700), CC (1650), WEB Scene and WEB Tier 03 (1600) |
+| 1700 to 1600 | WEB Tier 01 and ATVP (1700), WEB Tier 02 and CC (1650), WEB Tier 03 and WEB Scene (1600) |
 | 1400 to 500 | Anime BD Tier 01 to 08, Anime Web Tier 01 and 02 |
 | 75 | Streaming services: AMZN, NF, DSNP, HMAX, MAX, HULU and others |
 | 10 | Season Pack |
@@ -77,8 +80,9 @@ WEB 1080p ranks above Bluray-1080p. That is the "Alternative" in the name.
 
 ### Sonarr: [Anime] Remux-1080p
 
-- **Qualities, low to high:** SDTV, DVD, WEB 480p, Bluray-480p, WEB 720p, Bluray-720p, WEB 1080p, Bluray 1080p (includes Remux)
-- **Cutoff:** Bluray 1080p
+- **Qualities, low to high:** SDTV, DVD, WEB 480p, Bluray-480p, WEB 720p, Bluray-720p, WEB 1080p, Bluray-1080p
+- **Not allowed:** Bluray-1080p Remux
+- **Cutoff:** Bluray-1080p
 - **Minimum score:** 100
 
 This profile wants English audio.
